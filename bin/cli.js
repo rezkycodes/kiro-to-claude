@@ -17,12 +17,12 @@ const command = args[0];
 
 function showHelp() {
   console.log(`
-kiro-claude-proxy v${packageJson.version}
+kiro-to-claude v${packageJson.version}
 
 Proxy server for using Kiro's Claude models with Claude Code CLI.
 
 USAGE:
-  kiro-claude-proxy <command> [options]
+  kiro-to-claude <command> [options]
 
 COMMANDS:
   start                 Start the proxy server (default port: 4000)
@@ -36,9 +36,9 @@ ENVIRONMENT:
   PORT                  Server port (default: 4000)
 
 EXAMPLES:
-  kiro-claude-proxy start
-  PORT=3000 kiro-claude-proxy start
-  kiro-claude-proxy start --debug
+  kiro-to-claude start
+  PORT=4000 kiro-to-claude start
+  kiro-to-claude start --debug
 
 PREREQUISITES:
   - Kiro CLI must be installed and authenticated
@@ -89,7 +89,7 @@ async function main() {
 
     default:
       console.error(`Unknown command: ${command}`);
-      console.error('Run "kiro-claude-proxy --help" for usage information.');
+      console.error('Run "kiro-to-claude --help" for usage information.');
       process.exit(1);
   }
 }
