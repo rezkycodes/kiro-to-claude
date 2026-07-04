@@ -1,4 +1,4 @@
-# Kiro Claude Proxy
+# Kiro to Claude
 
 ## How It Works
 
@@ -29,18 +29,18 @@
 
 ```bash
 # Run directly with npx (no install needed)
-npx kiro-claude-proxy start
+npx kiro-to-claude start
 
 # Or install globally
-npm install -g kiro-claude-proxy
-kiro-claude-proxy start
+npm install -g kiro-to-claude
+kiro-to-claude start
 ```
 
 ### Option 2: Clone Repository
 
 ```bash
-git clone <repository-url>
-cd kiro-claude-proxy
+git clone https://github.com/rezkycodes/kiro-to-claude.git
+cd kiro-to-claude
 npm install
 npm start
 ```
@@ -61,10 +61,10 @@ kiro auth
 
 ```bash
 # If installed via npm
-kiro-claude-proxy start
+kiro-to-claude start
 
 # If using npx
-npx kiro-claude-proxy start
+npx kiro-to-claude start
 
 # If cloned locally
 npm start
@@ -145,7 +145,7 @@ Restart your terminal for changes to take effect.
 
 ```bash
 # Make sure the proxy is running first
-kiro-claude-proxy start
+kiro-to-claude start
 
 # In another terminal, run Claude Code
 claude
@@ -179,16 +179,16 @@ claude
 
 ```bash
 # Start server
-kiro-claude-proxy start          # Default port 4000
-kiro-claude-proxy start --debug  # With debug logging
+kiro-to-claude start          # Default port 4000
+kiro-to-claude start --debug  # With debug logging
 
 # Help & version
-kiro-claude-proxy --help         # Show help
-kiro-claude-proxy --version      # Show version
+kiro-to-claude --help         # Show help
+kiro-to-claude --version      # Show version
 
 # Environment variables
-PORT=3000 kiro-claude-proxy start     # Custom port
-DEBUG=true kiro-claude-proxy start    # Debug mode
+PORT=4000 kiro-to-claude start     # Set the server port (default: 4000)
+DEBUG=true kiro-to-claude start    # Debug mode
 ```
 
 ---
@@ -223,7 +223,7 @@ kiro auth
 ### Running in Debug Mode
 
 ```bash
-kiro-claude-proxy start --debug
+kiro-to-claude start --debug
 ```
 
 ### Environment Variables

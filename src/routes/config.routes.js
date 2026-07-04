@@ -17,7 +17,7 @@ import {
     extractConfig,
     buildManualSnippet,
     applyClaudeSettings
-} from './claude-config.js';
+} from '../config/claude-config.js';
 import { listKiroModels } from '../kiro/index.js';
 import { renderPage, ICONS } from '../ui/theme.js';
 import { logger } from '../utils/logger.js';
@@ -171,7 +171,7 @@ const SCRIPT = `
 /** GET /config/claude — UI */
 router.get('/', (req, res) => {
     res.type('html').send(renderPage({
-        title: 'Kiro Claude Proxy — Claude Code Config',
+        title: 'Kiro to Claude — Claude Code Config',
         active: 'config',
         body: BODY,
         script: SCRIPT

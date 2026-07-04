@@ -1,5 +1,5 @@
 /**
- * Kiro Claude Proxy
+ * Kiro to Claude
  * Entry point - starts the proxy server
  */
 
@@ -54,7 +54,7 @@ function renderBanner(lines, inner = 64) {
 app.listen(PORT, () => {
     const base = `http://localhost:${PORT}`;
     logger.log('\n' + renderBanner([
-        { center: 'Kiro Claude Proxy Server' },
+        { center: 'Kiro to Claude Server' },
         { sep: true },
         '',
         `  Server running at: ${base}`,

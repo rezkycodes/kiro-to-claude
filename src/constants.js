@@ -1,5 +1,5 @@
 /**
- * Constants for Kiro Claude Proxy
+ * Constants for Kiro to Claude
  * Kiro-specific configuration and AWS CodeWhisperer integration
  */
 
@@ -77,7 +77,7 @@ export const KIRO_DESKTOP_REFRESH_URL_TEMPLATE =
 export const AWS_SSO_OIDC_URL_TEMPLATE = 'https://oidc.{region}.amazonaws.com/token';
 
 // User-Agent used for refresh requests (mimics the Kiro IDE client).
-export const KIRO_REFRESH_USER_AGENT = 'KiroIDE-0.7.45-kiro-claude-proxy';
+export const KIRO_REFRESH_USER_AGENT = 'KiroIDE-0.7.45-kiro-to-claude';
 
 // --- OAuth (social login + import) ---
 // Kiro Desktop Auth service (Google/GitHub social login + social refresh).

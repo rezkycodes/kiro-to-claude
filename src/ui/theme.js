@@ -279,7 +279,7 @@ ${head}
   <div class="hdr-in">
     <a class="brand" href="/">
       <span class="mark">${ICONS.logo}</span>
-      <span>Kiro Claude Proxy<small>Anthropic-compatible gateway</small></span>
+      <span>Kiro to Claude<small>Anthropic-compatible gateway</small></span>
     </a>
     <nav class="nav" aria-label="Primary">${nav(active)}</nav>
   </div>

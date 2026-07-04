@@ -1,4 +1,4 @@
-# Kiro Claude Proxy
+# Kiro to Claude
 
 A proxy server that exposes an **Anthropic-compatible API** backed by **Kiro's AWS CodeWhisperer**, letting you use Claude models with **Claude Code CLI** or any Anthropic-compatible client.
 
@@ -44,18 +44,18 @@ A proxy server that exposes an **Anthropic-compatible API** backed by **Kiro's A
 
 ```bash
 # Run directly with npx (no install needed)
-npx kiro-claude-proxy start
+npx kiro-to-claude start
 
 # Or install globally
-npm install -g kiro-claude-proxy
-kiro-claude-proxy start
+npm install -g kiro-to-claude
+kiro-to-claude start
 ```
 
 ### Option 2: Clone Repository
 
 ```bash
-git clone <repository-url>
-cd kiro-claude-proxy
+git clone https://github.com/rezkycodes/kiro-to-claude.git
+cd kiro-to-claude
 npm install
 npm start
 ```
@@ -68,10 +68,10 @@ npm start
 
 ```bash
 # If installed via npm
-kiro-claude-proxy start
+kiro-to-claude start
 
 # If using npx
-npx kiro-claude-proxy start
+npx kiro-to-claude start
 
 # If cloned locally
 npm start
@@ -192,7 +192,7 @@ Restart your terminal for changes to take effect.
 
 ```bash
 # Make sure the proxy is running first
-kiro-claude-proxy start
+kiro-to-claude start
 
 # In another terminal, run Claude Code
 claude
@@ -298,7 +298,7 @@ kiro auth
 ### Running in Debug Mode
 
 ```bash
-kiro-claude-proxy start --debug
+kiro-to-claude start --debug
 ```
 
 ### Environment Variables

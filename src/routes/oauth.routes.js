@@ -29,8 +29,8 @@ import {
     discoverAllCredentialSources,
     discoverLocalCredentials,
     validateAndBuildCredentials
-} from './kiro-oauth.js';
-import { saveKiroCredentials, isKiroAuthenticated } from './kiro-token-extractor.js';
+} from '../auth/kiro-oauth.js';
+import { saveKiroCredentials, isKiroAuthenticated } from '../auth/kiro-token-extractor.js';
 import { renderPage, ICONS } from '../ui/theme.js';
 import { logger } from '../utils/logger.js';
 
@@ -177,7 +177,7 @@ const SCRIPT = `
 /** GET /oauth/kiro — sign-in UI */
 router.get('/', (req, res) => {
     res.type('html').send(renderPage({
-        title: 'Kiro Claude Proxy — Sign in',
+        title: 'Kiro to Claude — Sign in',
         active: 'signin',
         body: BODY,
         script: SCRIPT

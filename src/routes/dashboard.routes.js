@@ -10,7 +10,7 @@
  */
 
 import express from 'express';
-import { renderPage, THEME_CSS, ICONS } from './theme.js';
+import { renderPage, THEME_CSS, ICONS } from '../ui/theme.js';
 
 const router = express.Router();
 
@@ -120,7 +120,7 @@ const SCRIPT = `
 
 function handler(req, res) {
     res.type('html').send(renderPage({
-        title: 'Kiro Claude Proxy — Dashboard',
+        title: 'Kiro to Claude — Dashboard',
         active: 'dashboard',
         body: dashboardBody(),
         script: SCRIPT,

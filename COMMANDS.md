@@ -1,24 +1,24 @@
-# Kiro Claude Proxy - Commands Reference
+# Kiro to Claude - Commands Reference
 
 ## CLI Commands
 
 ### Start Server
 ```bash
-kiro-claude-proxy start          # Start on default port 4000
-kiro-claude-proxy start --debug  # Start with debug logging
-kiro-claude-proxy                # Defaults to start command
+kiro-to-claude start          # Start on default port 4000
+kiro-to-claude start --debug  # Start with debug logging
+kiro-to-claude                # Defaults to start command
 ```
 
 ### Help & Version
 ```bash
-kiro-claude-proxy --help         # Show help message
-kiro-claude-proxy --version      # Show version number
+kiro-to-claude --help         # Show help message
+kiro-to-claude --version      # Show version number
 ```
 
 ### Alternative Start Methods
 ```bash
 npm start                        # If cloned locally
-npx kiro-claude-proxy start      # Run without installing
+npx kiro-to-claude start      # Run without installing
 ```
 
 ---
@@ -37,6 +37,22 @@ curl http://localhost:4000/health
 ```bash
 GET /v1/models
 curl http://localhost:4000/v1/models
+```
+
+### Check Active Models
+Probe each model with a tiny live request to see which are active on your account.
+```bash
+GET /v1/models/check                          # check all models
+curl http://localhost:4000/v1/models/check
+curl "http://localhost:4000/v1/models/check?models=claude-opus-4-8,auto"  # check specific
+```
+
+### Count Tokens (estimate)
+```bash
+POST /v1/messages/count_tokens
+curl -X POST http://localhost:4000/v1/messages/count_tokens \
+  -H "Content-Type: application/json" \
+  -d '{"model":"claude-sonnet-4-5","messages":[{"role":"user","content":"Hello"}]}'
 ```
 
 ### Send Message
@@ -66,11 +82,21 @@ curl -X POST http://localhost:4000/v1/messages \
 
 ---
 
+## Web UIs
+
+Open in a browser:
+
+- `http://localhost:4000/`             — Dashboard (status, models, checker)
+- `http://localhost:4000/oauth/kiro`   — Sign in (Google/GitHub, auto-import, or paste token)
+- `http://localhost:4000/config/claude` — Configure Claude Code (`~/.claude/settings.json`)
+
+---
+
 ## Environment Variables
 
 ```bash
-PORT=3000 kiro-claude-proxy start     # Custom port
-DEBUG=true kiro-claude-proxy start    # Enable debug logging
+PORT=4000 kiro-to-claude start     # Set the server port (default: 4000)
+DEBUG=true kiro-to-claude start    # Enable debug logging
 ```
 
 ---
@@ -86,8 +112,31 @@ kiro --help                          # Verify Kiro CLI is installed
 
 ## Available Models
 
+`GET /v1/models` returns all of these. Add `-thinking` to any Claude model id
+(e.g. `claude-opus-4-8-thinking`) to request extended reasoning.
+
+**Claude (Anthropic)**
+- `claude-opus-4-8` — highest reliability (default)
+- `claude-opus-4-7`
+- `claude-opus-4-6`
 - `claude-opus-4-5`
-- `claude-sonnet-4-5` 
+- `claude-sonnet-5`
+- `claude-sonnet-4-6`
+- `claude-sonnet-4-5`
 - `claude-sonnet-4`
-- `claude-haiku-4-5`
-- `auto`
+- `claude-haiku-4-5` — fastest, low cost
+
+**Routing**
+- `auto` — let Kiro pick the best model per task
+
+**Open weight**
+- `minimax-m2.5`
+- `glm-5`
+- `deepseek-3.2`
+- `minimax-m2.1`
+- `qwen3-coder-next`
+
+> Availability depends on your Kiro plan/region. Probe which are actually active with:
+> ```bash
+> curl http://localhost:4000/v1/models/check
+> ```
